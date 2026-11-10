@@ -1,0 +1,25 @@
+{
+	"schemaVersion": 1,
+	"id": "heartsong",
+	"version": "${version}",
+	"name": "HeartSong",
+	"description": "Plays your chosen MP3 track automatically when your health drops below your start threshold, and stops it above your stop threshold. Press H to pick a song.",
+	"authors": [
+		"K1nse_"
+	],
+	"contact": {},
+	"license": "MIT",
+	"icon": "assets/heartsong/icon.png",
+	"environment": "client",
+	"entrypoints": {
+		"client": [
+			"com.heartsong.HeartSongClient"
+		]
+	},
+	"depends": {
+		"fabricloader": ">=0.19.0",
+		"minecraft": "26.2",
+		"java": ">=25",
+		"fabric-api": "*"
+	}
+}

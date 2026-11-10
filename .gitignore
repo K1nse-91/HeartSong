@@ -1,0 +1,32 @@
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# Local build workarounds (offline Maven mirror with third-party jars)
+local-maven/
+
+# Logs and local test output
+*.log
+logs/
+run/
+build-status.txt
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.settings/
+.classpath
+.project
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Local dev harnesses (not part of the published build)
+src/test/
+tools/
+
+ver.err
+

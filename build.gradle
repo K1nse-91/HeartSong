@@ -1,0 +1,73 @@
+plugins {
+	id 'net.fabricmc.fabric-loom' version "${loom_version}"
+	id 'maven-publish'
+}
+
+version = project.mod_version
+group = project.maven_group
+
+base {
+	archivesName = project.archives_base_name
+}
+
+repositories {
+	// Optional offline mirror used by the original build machine; absent on a fresh clone.
+	if (file('local-maven').exists()) {
+		maven { url = uri('local-maven') }
+	}
+	// Aliyun mirror helps on networks where Maven Central TLS is unreliable.
+	maven { url = 'https://maven.aliyun.com/repository/public' }
+	mavenCentral()
+}
+
+dependencies {
+	minecraft "com.mojang:minecraft:${project.minecraft_version}"
+	implementation "net.fabricmc:fabric-loader:${project.loader_version}"
+	implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+
+	// MP3 decoder (pure Java), nested inside the mod jar via Fabric Loader jar-in-jar.
+	implementation include("com.googlecode.soundlibs:jlayer:1.0.1.4")
+}
+
+loom {
+	splitEnvironmentSourceSets()
+	mods {
+		"heartsong" {
+			sourceSet sourceSets.client
+		}
+	}
+}
+
+processResources {
+	inputs.property "version", project.version
+	filesMatching("fabric.mod.json") {
+		expand "version": project.version
+	}
+}
+
+tasks.withType(JavaCompile).configureEach {
+	it.options.release = 25
+	it.options.encoding = "UTF-8"
+}
+
+java {
+	sourceCompatibility = JavaVersion.VERSION_25
+	targetCompatibility = JavaVersion.VERSION_25
+	withSourcesJar()
+}
+
+jar {
+	from("LICENSE") {
+		rename { "${it}_${project.base.archivesName.get()}" }
+	}
+}
+
+publishing {
+	publications {
+		create("mavenJava", MavenPublication) {
+			from components.java
+		}
+	}
+	repositories {
+	}
+}

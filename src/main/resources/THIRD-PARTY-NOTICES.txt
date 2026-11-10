@@ -1,0 +1,12 @@
+HeartSong includes the unmodified JLayer MP3 decoder, distributed as a nested JAR.
+
+Component: com.googlecode.soundlibs:jlayer:1.0.1.4
+Project: JLayer / JavaZOOM
+License: GNU Library General Public License version 2 or any later version
+Source archive: https://repo.maven.apache.org/maven2/com/googlecode/soundlibs/jlayer/1.0.1.4/jlayer-1.0.1.4-sources.jar
+Mirror: https://maven.aliyun.com/repository/public/com/googlecode/soundlibs/jlayer/1.0.1.4/jlayer-1.0.1.4-sources.jar
+License text: https://www.gnu.org/licenses/old-licenses/lgpl-2.0.txt
+
+JLayer remains a separate library inside META-INF/jars. Its source archive is
+also supplied with the source release under third-party/jlayer-1.0.1.4-sources.jar.
+HeartSong code is licensed under MIT; the bundled library retains its own license.
