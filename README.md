@@ -1,5 +1,7 @@
 # HeartSong
 
+![build](https://github.com/K1nse-91/HeartSong/actions/workflows/build.yml/badge.svg)
+
 Minecraft **26.1 / 26.2 / 26.3** 的 Fabric 客户端模组：血量低于可自定义阈值时自动播放你选的 MP3，回到高血量自动停止。带游戏内曲库、音量与阈值滑块、删除确认。
 
 作者：**K1nse_**　|　图标：粉心 + 均衡器
